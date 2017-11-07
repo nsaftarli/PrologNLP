@@ -8,14 +8,14 @@ person(alan). person(bob). person(chris). person(dwight). person(ethan). person(
 
 home(alan,toronto). home(bob,ottawa). home(chris,montreal). home(dwight,vancouver). home(ethan,sarnia). home(fred,newyork). home(george,chicago). home(howard,sydney). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,ottawa). home(cathy,montreal). home(debora,vancouver). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,sydney). home(isabel,dubai). home(julie,bangkok).  
 
-city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(sydney). city(dubai). city(bangkok).
+city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(losangeles). city(sydney). city(dubai). city(bangkok).
 
 country(canada). country(usa). country(australia). country(uae). country(thailand).
 
 
-location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(sydney,australia). location(dubai,uae). location(bangkok,thailand).
+location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(newyork,usa). location(chicago,usa). location(losangeles,usa). location(sydney,australia). location(dubai,uae). location(bangkok,thailand).
 
- population(toronto,big). population(ottawa,big). population(montreal,big). population(sarnia,small). population(vancouver,big). population(sydney,big). population(dubai,big). population(bangkok,big).
+ population(toronto,2809000). population(ottawa,947031). population(montreal,1741000). population(sarnia,71594). population(vancouver,647540). population(newyork,8538000). population(chicago,2705000). population(losangeles,3976000). population(sydney,4029000). population(dubai,2866000). population(bangkok,8281000).
 
  married(alan,anna). married(bob,betty). married(chris,cathy). married(dwight,debora). married(ethan,elle). married(fred,fay). married(george,georgina). married(howard,hallie). married(ian,isabel). married(john,julie).
 
@@ -81,13 +81,33 @@ preposition(onto,X,Y) :- onto(X,Y).
 preposition(but,X,Y) :- but(X,Y).     
 preposition(at,X,Y) :- at(X,Y).     
 
-proper_noun(toronto). proper_noun(vancouver). proper_noun(ottawa). proper_noun(montreal). proper_noun(sarnia). proper_noun(alan). proper_noun(bob). proper_noun(chris). proper_noun(dwight). proper_noun(ethan). proper_noun(george). proper_noun(howard). proper_noun(ian). proper_noun(john). proper_noun(anna). proper_noun(betty). proper_noun(cathy). proper_noun(debora). proper_noun(elle). proper_noun(fay). proper_noun(georgina). proper_noun(hallie). proper_noun(isabel). proper_noun(julie). proper_noun(sydney). proper_noun(dubai). proper_noun(bangkok). proper_noun(canada). proper_noun(usa). proper_noun(australia). proper_noun(uae). proper_noun(thailand).
+proper_noun(toronto, X).
+proper_noun(vancouver). proper_noun(ottawa). proper_noun(montreal). proper_noun(sarnia). proper_noun(alan). proper_noun(bob). proper_noun(chris). proper_noun(dwight). proper_noun(ethan). proper_noun(george). proper_noun(howard). proper_noun(ian). proper_noun(john). proper_noun(anna). proper_noun(betty). proper_noun(cathy). proper_noun(debora). proper_noun(elle). proper_noun(fay). proper_noun(georgina). proper_noun(hallie). proper_noun(isabel). proper_noun(julie). proper_noun(sydney). proper_noun(dubai). proper_noun(bangkok). proper_noun(canada). proper_noun(usa). proper_noun(australia). proper_noun(uae). proper_noun(thailand).
 
-adjective(big,X). adjective(small). adjective(largest). adjective(smallest). adjective(large). adjective(single). adjective(married). adjective(parent). adjective(fast). adjective(slow). adjective(american). adjective(canadian). adjective(australian). adjective(thai). adjective(arab). adjective(torontonian). adjective(montrealer). adjective(tiny). adjective(coastal). adjective(landlocked). 
+adjective(big,X) :- size(X,big). 
+adjective(small,X) :- size(X,small).
+adjective(largest,X)  
+adjective(smallest). 
+adjective(large). 
+adjective(single). 
+adjective(married). 
+adjective(parent). 
+adjective(fast). 
+adjective(slow). 
+adjective(american). 
+adjective(canadian). 
+adjective(australian). 
+adjective(thai). 
+adjective(arab). 
+adjective(torontonian). 
+adjective(montrealer). 
+adjective(tiny). 
+adjective(coastal). 
+adjective(landlocked). 
 
 /* Part 3: Parser */
 
-
+what(Words, Ref) :- np(Words, Ref).
 who(Words, Ref) :- np(Words, Ref).
 
 np([Name],Name) :- proper_noun(Name).
@@ -112,3 +132,20 @@ prepPhrase([Prep|Rest], Who) :-
 
 appendLists([], L, L).
 appendLists([H|L1], L2, [H|L3]) :-  appendLists(L1, L2, L3).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
