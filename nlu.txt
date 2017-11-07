@@ -1,0 +1,166 @@
+
+
+Testing Queries:
+
+Q1:
+
+[eclipse 12]: father(alan,Y).
+
+Y = bob
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+Y = cathy
+Yes (0.00s cpu, solution 2)
+
+
+Q2:
+
+[eclipse 13]: parent(X,cathy).
+
+X = alan
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+X = anna
+Yes (0.00s cpu, solution 2)
+
+Q3: 
+
+[eclipse 14]: brother(X,Y).
+
+X = bob
+Y = cathy
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+X = bob
+Y = cathy
+Yes (0.00s cpu, solution 2, maybe more) ? ;
+
+No (0.00s cpu)
+
+Q4:
+
+[eclipse 15]: sister(X,Y).
+
+X = cathy
+Y = bob
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+X = cathy
+Y = bob
+Yes (0.00s cpu, solution 2, maybe more) ? ;
+
+No (0.00s cpu)
+
+
+Q5: 
+
+[eclipse 16]: ancestor(X,howard).
+
+X = george
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+X = georgina
+Yes (0.00s cpu, solution 2, maybe more) ? ;
+
+X = fred
+Yes (0.00s cpu, solution 3, maybe more) ? ;
+
+X = fay
+Yes (0.00s cpu, solution 4, maybe more) ? ;
+
+No (0.00s cpu)
+
+
+Q6:
+
+[eclipse 17]: grandmother(fay,howard).
+
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+No (0.00s cpu)
+
+Q7:
+
+[eclipse 19]: grandfather(fred,howard).
+
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+No (0.00s cpu)
+
+Q8:
+
+[eclipse 21]: uncle(X,julie).
+
+X = bob
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+X = bob
+Yes (0.00s cpu, solution 2, maybe more) ? ;
+
+No (0.00s cpu)
+
+Q9: 
+
+[eclipse 22]: auntie(X,Y).
+
+No (0.00s cpu)
+
+Q10:
+
+[eclipse 23]: relative(X,julie).
+
+X = bob
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+X = bob
+Yes (0.00s cpu, solution 2, maybe more) ? ;
+
+X = cathy
+Yes (0.00s cpu, solution 3, maybe more) ? ;
+
+X = cathy
+Yes (0.00s cpu, solution 4, maybe more) ? ;
+
+X = julie
+Yes (0.00s cpu, solution 5, maybe more) ? ;
+
+X = julie
+Yes (0.00s cpu, solution 6, maybe more) ? ;
+
+X = julie
+Yes (0.00s cpu, solution 7, maybe more) ? ;
+
+X = julie
+Yes (0.00s cpu, solution 8, maybe more) ? ;
+
+No (0.00s cpu)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
