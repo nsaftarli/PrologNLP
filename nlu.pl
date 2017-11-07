@@ -88,6 +88,7 @@ adjective(small,X) :- population(X,Y), Y<50000.
 adjective(largest,X) :- population(X,Y), not (population(X2,Y2), Y2 > Y).
 adjective(smallest,X) :- population(X,Y), not (population(X2,Y2), Y2 < Y).
 adjective(large,X) :- adjective(big,X).
+<<<<<<< HEAD
 adjective(single,X) :- .
 adjective(married).
 adjective(parent).
@@ -101,6 +102,21 @@ adjective(arab) :- home(X,City), location(City,uae).
 adjective(torontonian,X) :- home(X,toronto).
 adjective(montrealer,X) :- home(X,montreal).
 adjective(tiny,X) :- adjective(small,X). 
+=======
+adjective(single,X) :- not married(X,_), not married(_,X).
+adjective(married,X) :- not (not married(X,_), not married(_,X)).
+adjective(parent,X) :- parent(X,_).
+adjective(american,X) :- home(X,City), location(City,america).
+adjective(canadian,X).
+adjective(australian,X).
+adjective(thai,X).
+adjective(arab,X).
+adjective(torontonian,X).
+adjective(montrealer,X).
+adjective(tiny,X).
+adjective(coastal,X).
+adjective(landlocked,X). 
+>>>>>>> stuff
 
 /* Part 3: Parser */
 
