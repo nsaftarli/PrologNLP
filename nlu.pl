@@ -94,15 +94,13 @@ adjective(parent).
 adjective(fast).
 adjective(slow).
 adjective(american).
-adjective(canadian).
-adjective(australian).
-adjective(thai).
-adjective(arab).
-adjective(torontonian).
-adjective(montrealer).
-adjective(tiny).
-adjective(coastal).
-adjective(landlocked). 
+adjective(canadian,X) :- home(X,City), location(City,canada).
+adjective(australian,X) :- home(X,City), location(City,australia).
+adjective(thai,X) :- home(X,City), location(City,thailand).
+adjective(arab) :- home(X,City), location(City,uae).
+adjective(torontonian,X) :- home(X,toronto).
+adjective(montrealer,X) :- home(X,montreal).
+adjective(tiny,X) :- adjective(small,X). 
 
 /* Part 3: Parser */
 
