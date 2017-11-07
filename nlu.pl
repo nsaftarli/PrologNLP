@@ -65,7 +65,7 @@ common_noun(country,X) :- country(X).
 
 preposition(with,X,Y) :- with(X,Y). 
 preposition(of,X,Y) :- of(X,Y).     
-preposition(from,X,Y) :- from(X,Y).     
+preposition(from,X,Y) :- home(X,Y).     
 preposition(on,X,Y) :- on(X,Y).     
 preposition(in,X,Y) :- in(X,Y).     
 preposition(to,X,Y) :- to(X,Y).     
