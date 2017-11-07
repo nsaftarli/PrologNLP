@@ -57,7 +57,7 @@ common_noun(parent,X) :- parent(X,Y).
 common_noun(ancestor,X) :- ancestor(X,Y). 
 common_noun(grandmother,X) :- grandmother(X,Y). 
 common_noun(grandfather,X) :- grandfather(X,Y).
-common_noun(relative,X) :- rleative(X,Y). 
+common_noun(relative,X) :- relative(X,Y). 
 common_noun(city,X) :- city(X).
 common_noun(country,X) :- country(X).
 
@@ -81,9 +81,28 @@ preposition(onto,X,Y) :- onto(X,Y).
 preposition(but,X,Y) :- but(X,Y).     
 preposition(at,X,Y) :- at(X,Y).     
 
-proper_noun(toronto). proper_noun(vancouver). proper_noun(ottawa). proper_noun(montreal). proper_noun(sarnia). proper_noun(alan). proper_noun(bob). proper_noun(chris). proper_noun(dwight). proper_noun(ethan). proper_noun(george). proper_noun(howard). proper_noun(ian). proper_noun(john). proper_noun(anna). proper_noun(betty). proper_noun(cathy). proper_noun(debora). proper_noun(elle). proper_noun(fay). proper_noun(georgina). proper_noun(hallie). proper_noun(isabel). proper_noun(julie). proper_noun(sydney). proper_noun(dubai). proper_noun(bangkok). proper_noun(canada). proper_noun(usa). proper_noun(australia). proper_noun(uae). proper_noun(thailand).
+proper_noun(X) :- not article(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
 
-adjective(big,X). adjective(small). adjective(largest). adjective(smallest). adjective(large). adjective(single). adjective(married). adjective(parent). adjective(fast). adjective(slow). adjective(american). adjective(canadian). adjective(australian). adjective(thai). adjective(arab). adjective(torontonian). adjective(montrealer). adjective(tiny). adjective(coastal). adjective(landlocked). 
+adjective(big,X) :- population(X,Y), Y>=50000.
+adjective(small,X) :- population(X,Y), Y<50000.
+adjective(largest,X) :- population(X,Y), not (population(X2,Y2), Y2 > Y).
+adjective(smallest,X) :- population(X,Y), not (population(X2,Y2), Y2 < Y).
+adjective(large,X) :- adjective(big,X).
+adjective(single,X) :- .
+adjective(married).
+adjective(parent).
+adjective(fast).
+adjective(slow).
+adjective(american).
+adjective(canadian).
+adjective(australian).
+adjective(thai).
+adjective(arab).
+adjective(torontonian).
+adjective(montrealer).
+adjective(tiny).
+adjective(coastal).
+adjective(landlocked). 
 
 /* Part 3: Parser */
 
