@@ -68,7 +68,8 @@ preposition(with,X,Y) :- with(X,Y).
 preposition(of,X,Y) :- of(X,Y).     
 preposition(from,X,Y) :- home(X,Y).     
 preposition(on,X,Y) :- on(X,Y).     
-preposition(in,X,Y) :- in(X,Y).     
+preposition(in,X) :- location(X,Y).  
+preposition(in,X) :- home(X,Y).   
 preposition(to,X,Y) :- to(X,Y).     
 preposition(beside,X,Y) :- beside(X,Y).
 preposition(beside,X,Y) :- beside(Y,X).     
