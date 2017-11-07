@@ -95,6 +95,7 @@ adjective(american,X) :- home(X,City), location(City,america).
 adjective(canadian,X) :- home(X,City), location(City,canada).
 adjective(australian,X) :- home(X,City), location(City,australia).
 adjective(thai,X) :- home(X,City), location(City,thailand).
+adjective(chinese,X) :- home(X,City), location(City,china).
 adjective(torontonian,X) :- home(X,toronto).
 adjective(montrealer,X) :- home(X,montreal).
 adjective(tiny,X) :- adjective(small,X). 
