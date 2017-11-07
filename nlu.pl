@@ -6,16 +6,16 @@ female(anna). female(betty). female(cathy). female(debora). female(elle). female
 
 person(alan). person(bob). person(chris). person(dwight). person(ethan). person(fred). person(george). person(howard). person(ian). person(john). person(anna). person(betty). person(cathy). person(debora). person(elle). person(fay). person(georgina). person(hallie). person(isabel). person(julie).
 
-home(alan,toronto). home(bob,ottawa). home(chris,montreal). home(dwight,vancouver). home(ethan,sarnia). home(fred,newyork). home(george,chicago). home(howard,sydney). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,ottawa). home(cathy,montreal). home(debora,vancouver). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,sydney). home(isabel,dubai). home(julie,bangkok).  
+home(alan,toronto). home(bob,ottawa). home(chris,montreal). home(dwight,vancouver). home(ethan,sarnia). home(fred,newyork). home(george,chicago). home(howard,sydney). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,beijing). home(cathy,montreal). home(debora,vancouver). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,sydney). home(isabel,dubai). home(julie,bangkok).  
 
-city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(losangeles). city(sydney). city(dubai). city(bangkok).
+city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(sydney). city(dubai). city(bangkok).
 
-country(canada). country(usa). country(australia). country(uae). country(thailand).
+country(canada). country(usa). country(australia). country(uae). country(thailand). country(china).
 
 
-location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(newyork,usa). location(chicago,usa). location(losangeles,usa). location(sydney,australia). location(dubai,uae). location(bangkok,thailand).
+location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(sydney,australia). location(dubai,uae). location(bangkok,thailand). location(beijing,china)
 
- population(toronto,2809000). population(ottawa,947031). population(montreal,1741000). population(sarnia,71594). population(vancouver,647540). population(newyork,8538000). population(chicago,2705000). population(losangeles,3976000). population(sydney,4029000). population(dubai,2866000). population(bangkok,8281000).
+ population(toronto,big). population(ottawa,big). population(montreal,big). population(sarnia,small). population(vancouver,big). population(sydney,big). population(dubai,big). population(bangkok,big). population(beijing, 21700000).
 
  married(alan,anna). married(bob,betty). married(chris,cathy). married(dwight,debora). married(ethan,elle). married(fred,fay). married(george,georgina). married(howard,hallie). married(ian,isabel). married(john,julie).
 
@@ -88,21 +88,19 @@ adjective(small,X) :- population(X,Y), Y<50000.
 adjective(largest,X) :- population(X,Y), not (population(X2,Y2), Y2 > Y).
 adjective(smallest,X) :- population(X,Y), not (population(X2,Y2), Y2 < Y).
 adjective(large,X) :- adjective(big,X).
-adjective(single,X) :- .
-adjective(married).
-adjective(parent).
-adjective(fast).
-adjective(slow).
-adjective(american).
-adjective(canadian).
-adjective(australian).
-adjective(thai).
-adjective(arab).
-adjective(torontonian).
-adjective(montrealer).
-adjective(tiny).
-adjective(coastal).
-adjective(landlocked). 
+adjective(single,X) :- not married(X,_), not married(_,X).
+adjective(married,X) :- not (not married(X,_), not married(_,X)).
+adjective(parent,X) :- parent(X,_).
+adjective(american,X) :- home(X,City), 	.
+adjective(canadian,X).
+adjective(australian,X).
+adjective(thai,X).
+adjective(arab,X).
+adjective(torontonian,X).
+adjective(montrealer,X).
+adjective(tiny,X).
+adjective(coastal,X).
+adjective(landlocked,X). 
 
 /* Part 3: Parser */
 
