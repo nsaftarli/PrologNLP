@@ -8,7 +8,7 @@ person(alan). person(bob). person(chris). person(dwight). person(ethan). person(
 
 home(alan,toronto). home(bob,ottawa). home(chris,montreal). home(dwight,vancouver). home(ethan,sarnia). home(fred,newyork). home(george,chicago). home(howard,sydney). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,beijing). home(cathy,montreal). home(debora,vancouver). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,sydney). home(isabel,dubai). home(julie,bangkok).  
 
-city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(sydney). city(dubai). city(bangkok).
+city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(sydney). city(dubai). city(bangkok). city(beijing).
 
 country(canada). country(usa). country(australia). country(uae). country(thailand). country(china).
 
