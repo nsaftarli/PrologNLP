@@ -49,15 +49,15 @@ article(a). article(an). article(any). article(the). article(that). article(this
 
 common_noun(man,X) :- male(X). 
 common_noun(woman,X) :- female(X). 
-common_noun(mother,X) :- mother(X,Y). 
-common_noun(father,X) :- father(X,Y). 
-common_noun(brother,X) :- brother(X,Y). 
-common_noun(sister,X) :- sister(X,Y). 
-common_noun(parent,X) :- parent(X,Y). 
-common_noun(ancestor,X) :- ancestor(X,Y). 
-common_noun(grandmother,X) :- grandmother(X,Y). 
-common_noun(grandfather,X) :- grandfather(X,Y).
-common_noun(relative,X) :- relative(X,Y). 
+common_noun(mother,X) :- mother(X,_). 
+common_noun(father,X) :- father(X,_). 
+common_noun(brother,X) :- brother(X,_). 
+common_noun(sister,X) :- sister(X,_). 
+common_noun(parent,X) :- parent(X,_). 
+common_noun(ancestor,X) :- ancestor(X,_). 
+common_noun(grandmother,X) :- grandmother(X,_). 
+common_noun(grandfather,X) :- grandfather(X,_).
+common_noun(relative,X) :- relative(X,_). 
 common_noun(city,X) :- city(X).
 common_noun(country,X) :- country(X).
 
