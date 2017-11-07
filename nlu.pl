@@ -8,14 +8,14 @@ person(alan). person(bob). person(chris). person(dwight). person(ethan). person(
 
 home(alan,toronto). home(bob,ottawa). home(chris,montreal). home(dwight,vancouver). home(ethan,sarnia). home(fred,newyork). home(george,chicago). home(howard,sydney). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,ottawa). home(cathy,montreal). home(debora,vancouver). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,sydney). home(isabel,dubai). home(julie,bangkok).  
 
-city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(sydney). city(dubai). city(bangkok).
+city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(losangeles). city(sydney). city(dubai). city(bangkok).
 
 country(canada). country(usa). country(australia). country(uae). country(thailand).
 
 
-location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(sydney,australia). location(dubai,uae). location(bangkok,thailand).
+location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(newyork,usa). location(chicago,usa). location(losangeles,usa). location(sydney,australia). location(dubai,uae). location(bangkok,thailand).
 
- population(toronto,big). population(ottawa,big). population(montreal,big). population(sarnia,small). population(vancouver,big). population(sydney,big). population(dubai,big). population(bangkok,big).
+ population(toronto,2809000). population(ottawa,947031). population(montreal,1741000). population(sarnia,71594). population(vancouver,647540). population(newyork,8538000). population(chicago,2705000). population(losangeles,3976000). population(sydney,4029000). population(dubai,2866000). population(bangkok,8281000).
 
  married(alan,anna). married(bob,betty). married(chris,cathy). married(dwight,debora). married(ethan,elle). married(fred,fay). married(george,georgina). married(howard,hallie). married(ian,isabel). married(john,julie).
 
