@@ -60,6 +60,7 @@ common_noun(grandfather,X) :- grandfather(X,_).
 common_noun(relative,X) :- relative(X,_). 
 common_noun(city,X) :- city(X).
 common_noun(country,X) :- country(X).
+common_noun(friend,X) :- friend(X,Y).
 
 
 
