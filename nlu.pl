@@ -91,7 +91,7 @@ adjective(large,X) :- adjective(big,X).
 adjective(single,X) :- not married(X,_), not married(_,X).
 adjective(married,X) :- not (not married(X,_), not married(_,X)).
 adjective(parent,X) :- parent(X,_).
-adjective(american,X) :- home(X,City), 	.
+adjective(american,X) :- home(X,City), location(City,america).
 adjective(canadian,X).
 adjective(australian,X).
 adjective(thai,X).
