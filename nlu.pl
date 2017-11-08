@@ -60,10 +60,11 @@ common_noun(grandfather,X) :- grandfather(X,_).
 common_noun(relative,X) :- relative(X,_). 
 common_noun(city,X) :- city(X).
 common_noun(country,X) :- country(X).
-common_noun(friend,X,Y) :- friend(X,Y).
+common_noun(friend,X) :- friend(X,Y).
 
  
-preposition(of,X,Y) :-
+preposition(of,X,Y) :- friend(X,Y).
+preposition(of,X,Y) :- friend(Y,X).
 preposition(from,X,Y) :- home(X,Y). 
 preposition(in,X,Y) :- location(Y,X). 
 preposition(in,X,Y) :- location(X,Y). 
