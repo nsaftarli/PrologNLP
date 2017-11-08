@@ -64,24 +64,14 @@ common_noun(friend,X) :- friend(X,Y).
 
 
 
-preposition(with,X,Y) :- with(X,Y). 
-preposition(of,X,Y) :- of(X,Y).     
-preposition(from,X,Y) :- home(X,Y).     
-preposition(on,X,Y) :- on(X,Y).     
-preposition(in,X) :- location(X,Y).  
-preposition(in,X) :- home(X,Y).   
-preposition(to,X,Y) :- to(X,Y).     
-preposition(beside,X,Y) :- beside(X,Y).
-preposition(beside,X,Y) :- beside(Y,X).     
-preposition(for,X,Y) :- for(X,Y).     
-preposition(off,X,Y) :- off(X,Y).     
-preposition(over,X,Y) :- over(X,Y).     
-preposition(up,X,Y) :- up(X,Y).     
-preposition(within,X,Y) :- within(X,Y).     
-preposition(without,X,Y) :- without(X,Y).     
-preposition(onto,X,Y) :- onto(X,Y).     
-preposition(but,X,Y) :- but(X,Y).     
-preposition(at,X,Y) :- at(X,Y).     
+preposition(X,with,Y) :- with(X,Y). 
+preposition(X,of,Y) :- of(X,Y). 
+preposition(X,from,Y) :- home(X,Y).  
+preposition(X,on,Y) :- on(X,Y). 
+preposition(X,in,Y) :- location(Y,X). 
+preposition(X,in,Y) :- location(X,Y). 
+preposition(X,in,Y) :- home(X,Y).   
+
 
 proper_noun(X) :- not article(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
 
