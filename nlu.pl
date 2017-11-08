@@ -13,15 +13,15 @@ city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city
 country(canada). country(usa). country(australia). country(uae). country(thailand). country(china).
 
 
-location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(newyork,usa). location(chicago,usa). location(losangeles,usa). location(sydney,australia). location(dubai,uae). location(bangkok,thailand). location(beijing,china).
+location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(newyork,usa). location(chicago,usa). location(losangeles,usa). location(sydney,australia). location(dubai,uae). location(bangkok,thailand). location(beijing,china). location(dryden,canada).
 
- population(toronto,2809000). population(ottawa,947031). population(montreal,1741000). population(sarnia,71594). population(vancouver,647540). population(newyork,8538000). population(chicago,2705000). population(losangeles,3976000). population(sydney,4029000). population(dubai,2866000). population(bangkok,8281000). population(beijing,21500000). population(dryden,7617).
+population(toronto,2809000). population(ottawa,947031). population(montreal,1741000). population(sarnia,71594). population(vancouver,647540). population(newyork,8538000). population(chicago,2705000). population(losangeles,3976000). population(sydney,4029000). population(dubai,2866000). population(bangkok,8281000). population(beijing,21500000). population(dryden,7617).
 
- married(alan,anna). married(bob,betty). married(chris,cathy). married(dwight,debora). married(ethan,elle). married(fred,fay). married(george,georgina). married(howard,hallie). married(ian,isabel). married(john,julie).
+married(alan,anna). married(bob,betty). married(chris,cathy). married(dwight,debora). married(ethan,elle). married(fred,fay). married(george,georgina). married(howard,hallie). married(ian,isabel). married(john,julie).
 
- parent(alan,bob). parent(anna,bob). parent(alan,cathy). parent(anna,cathy). parent(dwight,ethan). parent(debora,ethan). parent(fred,george). parent(fay,george). parent(ian,john). parent(isabel,john). parent(george,howard). parent(georgina,howard). parent(cathy,julie). parent(chris,julie).
+parent(alan,bob). parent(anna,bob). parent(alan,cathy). parent(anna,cathy). parent(dwight,ethan). parent(debora,ethan). parent(fred,george). parent(fay,george). parent(ian,john). parent(isabel,john). parent(george,howard). parent(georgina,howard). parent(cathy,julie). parent(chris,julie).
 
- friend(alan,cathy). friend(anna,cathy). friend(betty,dwight). friend(bob,dwight). friend(betty,debora). friend(bob,debora). friend(ethan,fred). friend(ethan,georgina). friend(elle,fred). friend(elle,georgina). friend(isabel,george). friend(ian,george). friend(isabel,georgina). friend(ian,georgina). friend(alan,kevin).
+friend(alan,cathy). friend(anna,cathy). friend(betty,dwight). friend(bob,dwight). friend(betty,debora). friend(bob,debora). friend(ethan,fred). friend(ethan,georgina). friend(elle,fred). friend(elle,georgina). friend(isabel,george). friend(ian,george). friend(isabel,georgina). friend(ian,georgina). friend(alan,kevin).
 
 
 /* Part 1: Relationship predicates */
@@ -77,7 +77,9 @@ proper_noun(X) :- not article(X), not common_noun(X,_), not adjective(X,_), not 
 adjective(big,X) :- population(X,Y), Y>=50000.
 adjective(small,X) :- population(X,Y), Y<50000.
 adjective(largest,X) :- population(X,Y), not (population(X2,Y2), Y2 > Y).
+adjective(largest,X) :- population(X,Y), not (population(X2,Y2), Y2 > Y, location(X,Country), location(X2,Country)).
 adjective(smallest,X) :- population(X,Y), not (population(X2,Y2), Y2 < Y).
+adjective(smallest,X) :- population(X,Y), not (population(X2,Y2), Y2 < Y, location(X,Country), location(X2,Country)).
 adjective(large,X) :- adjective(big,X).
 adjective(single,X) :- not married(X,_), not married(_,X).
 adjective(married,X) :- not (not married(X,_), not married(_,X)).
