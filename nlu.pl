@@ -1,12 +1,12 @@
 
 /* Part 1: Basic atomics */
-male(alan). male(bob). male(chris). male(dwight). male(ethan). male(fred). male(george). male(howard). male(ian). male(john). 
+male(alan). male(bob). male(chris). male(dwight). male(ethan). male(fred). male(george). male(howard). male(ian). male(john). male(kevin).
 
 female(anna). female(betty). female(cathy). female(debora). female(elle). female(fay). female(georgina). female(hallie). female(isabel). female(julie). 
 
 person(alan). person(bob). person(chris). person(dwight). person(ethan). person(fred). person(george). person(howard). person(ian). person(john). person(anna). person(betty). person(cathy). person(debora). person(elle). person(fay). person(georgina). person(hallie). person(isabel). person(julie). person(kevin).
 
-home(alan,toronto). home(bob,ottawa). home(chris,montreal). home(dwight,vancouver). home(ethan,sarnia). home(fred,newyork). home(george,chicago). home(howard,sydney). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,beijing). home(cathy,montreal). home(debora,vancouver). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,sydney). home(isabel,dubai). home(julie,bangkok).  home(kevin,beijing).
+home(alan,toronto). home(bob,ottawa). home(chris,montreal). home(dwight,vancouver). home(ethan,sarnia). home(fred,newyork). home(george,chicago). home(howard,sydney). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,beijing). home(cathy,beijing). home(debora,vancouver). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,sydney). home(isabel,dubai). home(julie,bangkok).  home(kevin,montreal).
 
 city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(losangeles). city(sydney). city(dubai). city(bangkok). city(beijing). city(dryden).
 
@@ -19,9 +19,9 @@ location(toronto,canada). location(montreal,canada). location(ottawa,canada). lo
 
  married(alan,anna). married(bob,betty). married(chris,cathy). married(dwight,debora). married(ethan,elle). married(fred,fay). married(george,georgina). married(howard,hallie). married(ian,isabel). married(john,julie).
 
- parent(alan,bob). parent(anna,bob). parent(alan,cathy). parent(anna,cathy). parent(dwight,ethan). parent(debora,ethan). parent(fred,george). parent(fay,george). parent(ian,john). parent(isabel,john). parent(george,howard). parent(georgina,howard). parent(cathy,julie). parent(chris,julie).
+ parent(alan,bob). parent(anna,bob). parent(alan,cathy). parent(anna,cathy). parent(dwight,ethan). parent(debora,ethan). parent(fred,george). parent(fay,george). parent(ian,john). parent(isabel,john). parent(george,howard). parent(georgina,howard). parent(cathy,julie). parent(chris,julie). parent(kevin,anna).
 
- friend(alan,cathy). friend(anna,cathy). friend(betty,dwight). friend(bob,dwight). friend(betty,debora). friend(bob,debora). friend(ethan,fred). friend(ethan,georgina). friend(elle,fred). friend(elle,georgina). friend(isabel,george). friend(ian,george). friend(isabel,georgina). friend(ian,georgina). friend(alan,kevin).
+ friend(alan,cathy). friend(anna,cathy). friend(betty,dwight). friend(bob,dwight). friend(betty,debora). friend(bob,debora). friend(ethan,fred). friend(ethan,georgina). friend(elle,fred). friend(elle,georgina). friend(isabel,george). friend(ian,george). friend(isabel,georgina). friend(ian,georgina).
 
 
 /* Part 1: Relationship predicates */
@@ -41,6 +41,7 @@ uncle(X,Y) :- parent(Z,Y), brother(X,Z).
 
 auntie(X,Y) :- parent(Z,Y), sister(X,Z).
 
+relative(X,Y) :- parent(X,Y).
 relative(X,Y) :- ancestor(Z,X), ancestor(Z,Y).
 
 /* Part 2: Lexicon */
@@ -62,6 +63,7 @@ common_noun(city,X) :- city(X).
 common_noun(country,X) :- country(X).
 common_noun(friend,X) :- friend(X,Y).
 common_noun(friend,X) :- friend(Y,X).
+common_noun(person,X) :- person(X).
 
  
 preposition(of,X,Y) :- friend(X,Y).
@@ -69,7 +71,8 @@ preposition(of,X,Y) :- friend(Y,X).
 preposition(from,X,Y) :- home(X,Y). 
 preposition(in,X,Y) :- location(Y,X). 
 preposition(in,X,Y) :- location(X,Y). 
-preposition(in,X,Y) :- home(X,Y).   
+preposition(in,X,Y) :- home(X,Y). 
+preposition(with,X,Y) :- relative(X,Y).  
 
 
 proper_noun(X) :- not article(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
@@ -80,7 +83,8 @@ adjective(largest,X) :- population(X,Y), not (population(X2,Y2), Y2 > Y).
 adjective(smallest,X) :- population(X,Y), not (population(X2,Y2), Y2 < Y).
 adjective(large,X) :- adjective(big,X).
 adjective(single,X) :- not married(X,_), not married(_,X).
-adjective(married,X) :- not (not married(X,_), not married(_,X)).
+adjective(married,X) :- married(X,_).
+adjective(married,X) :- married(_,X).
 adjective(parent,X) :- parent(X,_).
 adjective(american,X) :- home(X,City), location(City,america).
 adjective(canadian,X) :- home(X,City), location(City,canada).
