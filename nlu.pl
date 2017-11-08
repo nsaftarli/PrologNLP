@@ -61,6 +61,7 @@ common_noun(relative,X) :- relative(X,_).
 common_noun(city,X) :- city(X).
 common_noun(country,X) :- country(X).
 common_noun(friend,X) :- friend(X,Y).
+common_noun(friend,X) :- friend(Y,X).
 
  
 preposition(of,X,Y) :- friend(X,Y).
