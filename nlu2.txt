@@ -19,8 +19,61 @@ X = newyork
 Yes (0.00s cpu, solution 1, maybe more)
 
 Q5:
-?- what([a, parent, with, a, child, in, dryden], X).
+?- who([a, parent, with, a, child, in, dryden], X).
 X = dwight
 Yes (0.00s cpu, solution 1, maybe more)
 
 Q6:
+?- who([a, sister, with, a, brother, in, toronto], X).
+X = cathy
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q7:
+?- what([a, small, city, in, canada], X).
+X = dryden
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q8:
+?- what([a, largest, city, in, canada], X).
+X = toronto
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q9:
+?- who([any, friend, from, toronto, of, a, single, man, from, a, large, city], X).
+X = alan
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q10:
+?- who([a, married, person, from, toronto, with, a, relative, from, montreal], X).
+X = alan
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q11:
+?- who([a, grandmother, from, canada, with, a, husband, from, toronto], X).
+X = anna
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q12:
+?- who([a, father, from, a, small, city, in, canada, with, a, wife, from, montreal], X).
+X = dwight
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q13:
+?- who([a, canadian, child, from, a, small, city, with, a, sister], X).
+X = ethan
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q14:
+?- who([an, american, woman, with, a, canadian, ancestor], X).
+X = fay
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q15:
+?- who([a, married, person, with, a, single, american, friend], X).
+X = alan
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q16:
+?- who([a, brother, of, a, married, woman, from, a, largest, city, in, usa], X).
+X = ethan
+Yes (0.03s cpu, solution 1, maybe more)
