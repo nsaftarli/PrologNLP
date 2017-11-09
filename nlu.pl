@@ -45,6 +45,8 @@ relative(X,Y) :- parent(X,Y).
 relative(X,Y) :- parent(Y,X).
 relative(X,Y) :- ancestor(Z,X), ancestor(Z,Y).
 
+child(X,Y) :- parent(Y,X).
+
 /* Part 2: Lexicon */
 
 article(a). article(an). article(any). article(the). article(that). article(this).
@@ -69,12 +71,26 @@ common_noun(husband,X) :- male(X), married(X,Y).
 common_noun(husband,X) :- male(X), married(Y,X).
 common_noun(wife,X) :- female(X), married(X,Y).
 common_noun(wife,X) :- female(X), married(Y,X).
-common_noun(child,X) :- parent(Y,X).
+common_noun(child,X) :- child(X,_).
 
 
  
 preposition(of,X,Y) :- friend(X,Y).
 preposition(of,X,Y) :- friend(Y,X).
+preposition(of,X,Y) :- father(X,Y).
+preposition(of,X,Y) :- mother(X,Y).
+preposition(of,X,Y) :- parent(X,Y).
+preposition(of,X,Y) :- brother(X,Y).
+preposition(of,X,Y) :- brother(Y,X).
+preposition(of,X,Y) :- sister(X,Y).
+preposition(of,X,Y) :- sister(Y,X).
+preposition(of,X,Y) :- child(X,Y).
+preposition(of,X,Y) :- relative(X,Y).
+preposition(of,X,Y) :- relative(Y,X).
+preposition(of,X,Y) :- grandmother(X,Y).
+preposition(of,X,Y) :- grandfather(X,Y).
+preposition(of,X,Y) :- uncle(X,Y).
+preposition(of,X,Y) :- auntie(X,Y).
 preposition(from,X,Y) :- home(X,Y). 
 preposition(from,X,Y) :- home(X,Z), location(Z,Y).
 
