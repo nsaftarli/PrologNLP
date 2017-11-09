@@ -81,9 +81,7 @@ preposition(of,X,Y) :- father(X,Y).
 preposition(of,X,Y) :- mother(X,Y).
 preposition(of,X,Y) :- parent(X,Y).
 preposition(of,X,Y) :- brother(X,Y).
-preposition(of,X,Y) :- brother(Y,X).
 preposition(of,X,Y) :- sister(X,Y).
-preposition(of,X,Y) :- sister(Y,X).
 preposition(of,X,Y) :- child(X,Y).
 preposition(of,X,Y) :- relative(X,Y).
 preposition(of,X,Y) :- relative(Y,X).
