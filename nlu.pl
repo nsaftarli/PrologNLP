@@ -49,7 +49,9 @@ child(X,Y) :- parent(Y,X).
 
 /* Part 2: Lexicon */
 
-article(a). article(an). article(any). article(the). article(that). article(this).
+article(a). article(an). article(any). article(that). article(this).
+
+article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(of,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
 
 common_noun(man,X) :- male(X). 
 common_noun(woman,X) :- female(X). 
@@ -102,7 +104,7 @@ preposition(with,X,Y) :- friend(X,Y).
 preposition(with,X,Y) :- friend(Y,X).
 
 
-proper_noun(X) :- not article(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
+proper_noun(X) :- not article(X), not article2(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
 
 adjective(big,X) :- population(X,Y), Y>=50000.
 adjective(small,X) :- population(X,Y), Y<50000.
@@ -131,6 +133,7 @@ who(Words, Ref) :- np(Words, Ref).
 
 np([Name],Name) :- proper_noun(Name).
 np([Art|Rest], Who) :- article(Art), np2(Rest, Who).
+np([Art|Rest], Who) :- article2(Art,Rest,Who), np2(Rest, Who).
 
 
 np2([Adj|Rest],Who) :- adjective(Adj,Who), np2(Rest, Who).
