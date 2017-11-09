@@ -1,0 +1,9 @@
+Q1: 
+?- who([the, canadian, brother, of, a, married, woman, from, a, largest, city, in, usa], X).
+X = ethan
+Yes (0.03s cpu, solution 1, maybe more)
+
+Q2:
+?- who([the, male, child, of, a, torontonian, man], X).
+X = bob
+Yes (0.00s cpu, solution 1, maybe more)
