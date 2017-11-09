@@ -78,12 +78,11 @@ common_noun(country,X) :- country(X).
 common_noun(friend,X) :- friend(X,Y).
 common_noun(friend,X) :- friend(Y,X).
 common_noun(person,X) :- person(X).
-common_noun(husband,X) :- husband(X).
-common_noun(wife,X) :- wife(X).
+common_noun(husband,X) :- husband(X,Y).
+common_noun(wife,X) :- wife(X,Y).
 common_noun(child,X) :- child(X,_).
 
 
- 
 preposition(of,X,Y) :- friend(X,Y).
 preposition(of,X,Y) :- friend(Y,X).
 preposition(of,X,Y) :- father(X,Y).
