@@ -77,3 +77,8 @@ Q16:
 ?- who([a, brother, of, a, married, woman, from, a, largest, city, in, usa], X).
 X = ethan
 Yes (0.03s cpu, solution 1, maybe more)
+
+Q17:
+?- who([a, married, grandfather, from, canada], X).
+X = alan
+Yes (0.00s cpu, solution 1, maybe more)
