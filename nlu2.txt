@@ -82,3 +82,18 @@ Q17:
 ?- who([a, married, grandfather, from, canada], X).
 X = alan
 Yes (0.00s cpu, solution 1, maybe more)
+
+Q18:
+?- who([the, wife, of, a, married, grandfather, from, canada], X).
+X = anna
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q19:
+?- who([a, friend, of, a, male, parent, of, a, woman, from, thailand], X).
+X = alan
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q20:
+?- who([the, sister, of, a, child, of, alan], X).
+X = cathy
+Yes (0.00s cpu, solution 1, maybe more)
