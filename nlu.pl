@@ -4,7 +4,8 @@ male(alan). male(bob). male(chris). male(dwight). male(ethan). male(fred). male(
 
 female(anna). female(betty). female(cathy). female(debora). female(elle). female(fay). female(georgina). female(hallie). female(isabel). female(julie). female(kate).
 
-person(alan). person(bob). person(chris). person(dwight). person(ethan). person(fred). person(george). person(howard). person(ian). person(john). person(anna). person(betty). person(cathy). person(debora). person(elle). person(fay). person(georgina). person(hallie). person(isabel). person(julie). person(kevin). person(kate). person(leroy).
+person(X) :- male(X).
+person(X) :- female(X).
 
 home(alan,toronto). home(bob,toronto). home(chris,montreal). home(dwight,dryden). home(ethan,dryden). home(fred,newyork). home(george,chicago). home(howard,london). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,toronto). home(cathy,beijing). home(debora,montreal). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,newyork). home(isabel,dubai). home(julie,bangkok).  home(kevin,montreal). home(kate,sarnia). home(leroy,chicago). 
 
