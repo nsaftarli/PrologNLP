@@ -63,6 +63,11 @@ article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(from,Who,Ref
 article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(in,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
 article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(with,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
 
+article2(the,[Adj,Noun|Rest],Who) :- adjective(Adj,Who), common_noun(Noun,Who), preposition(of,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Adj,Noun|Rest],Who) :- adjective(Adj,Who), common_noun(Noun,Who), preposition(from,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Adj,Noun|Rest],Who) :- adjective(Adj,Who), common_noun(Noun,Who), preposition(in,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Adj,Noun|Rest],Who) :- adjective(Adj,Who), common_noun(Noun,Who), preposition(with,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+
 common_noun(man,X) :- male(X). 
 common_noun(woman,X) :- female(X). 
 common_noun(mother,X) :- mother(X,_). 
@@ -83,7 +88,7 @@ common_noun(husband,X) :- husband(X,Y).
 common_noun(wife,X) :- wife(X,Y).
 common_noun(child,X) :- child(X,_).
 
-
+/*
 preposition(of,X,Y) :- common_noun(Noun,X), common_noun(Noun,Y), not X = Y, friend(X,Y).
 preposition(of,X,Y) :- common_noun(Noun,X), common_noun(Noun,Y), not X = Y, friend(Y,X).
 preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, father(X,Y).
@@ -102,11 +107,11 @@ preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, grandfath
 preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, uncle(X,Y).
 preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, auntie(X,Y).
 
+*/
 
 
 
-
-/*preposition(of,X,Y) :- friend(X,Y).
+preposition(of,X,Y) :- friend(X,Y).
 preposition(of,X,Y) :- friend(Y,X).
 preposition(of,X,Y) :- father(X,Y).
 preposition(of,X,Y) :- mother(X,Y).
@@ -121,7 +126,7 @@ preposition(of,X,Y) :- grandfather(X,Y).
 preposition(of,X,Y) :- uncle(X,Y).
 preposition(of,X,Y) :- auntie(X,Y).
 preposition(of,X,Y) :- husband(X,Y).
-preposition(of,X,Y) :- wife(X,Y).*/
+preposition(of,X,Y) :- wife(X,Y).
 
 preposition(from,X,Y) :- home(X,Y). 
 preposition(from,X,Y) :- home(X,Z), location(Z,Y).
