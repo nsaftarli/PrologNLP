@@ -51,7 +51,7 @@ child(X,Y) :- parent(Y,X).
 
 article(a). article(an). article(any).  article(that). article(this).
 
-article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(of,Noun,Noun2), not( preposition(of,Noun3,Noun2), not Noun = Noun3).
+article2(the).
 
 common_noun(man,X) :- male(X). 
 common_noun(woman,X) :- female(X). 
@@ -135,7 +135,7 @@ who(Words, Ref) :- np(Words, Ref).
 
 np([Name],Name) :- proper_noun(Name).
 np([Art|Rest], Who) :- article(Art), np2(Rest, Who).
-np([Art|Rest], Who) :- article2(the, Rest, Who), np2(Rest, Who).
+np([Art|Rest], Who) :- article2(Art), np3(Rest, Who).
 
 
 np2([Adj|Rest],Who) :- adjective(Adj,Who), np2(Rest, Who).
