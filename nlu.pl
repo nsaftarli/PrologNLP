@@ -6,16 +6,16 @@ female(anna). female(betty). female(cathy). female(debora). female(elle). female
 
 person(alan). person(bob). person(chris). person(dwight). person(ethan). person(fred). person(george). person(howard). person(ian). person(john). person(anna). person(betty). person(cathy). person(debora). person(elle). person(fay). person(georgina). person(hallie). person(isabel). person(julie). person(kevin). person(kate). person(leroy).
 
-home(alan,toronto). home(bob,toronto). home(chris,montreal). home(dwight,dryden). home(ethan,dryden). home(fred,newyork). home(george,chicago). home(howard,sydney). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,toronto). home(cathy,beijing). home(debora,montreal). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,newyork). home(isabel,dubai). home(julie,bangkok).  home(kevin,montreal). home(kate,sarnia). home(leroy,chicago). 
+home(alan,toronto). home(bob,toronto). home(chris,montreal). home(dwight,dryden). home(ethan,dryden). home(fred,newyork). home(george,chicago). home(howard,london). home(ian,dubai). home(john,bangkok). home(anna,toronto). home(betty,toronto). home(cathy,beijing). home(debora,montreal). home(elle,sarnia). home(fay,newyork). home(georgina,chicago). home(hallie,newyork). home(isabel,dubai). home(julie,bangkok).  home(kevin,montreal). home(kate,sarnia). home(leroy,chicago). 
 
-city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(losangeles). city(sydney). city(dubai). city(bangkok). city(beijing). city(dryden).
+city(toronto). city(ottawa). city(montreal). city(vancouver). city(sarnia). city(newyork). city(chicago). city(losAngeles). city(london). city(dubai). city(bangkok). city(beijing). city(dryden).
 
-country(canada). country(usa). country(australia). country(uae). country(thailand). country(china).
+country(canada). country(usa). country(england). country(uae). country(thailand). country(china).
 
 
-location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(newyork,usa). location(chicago,usa). location(losangeles,usa). location(sydney,australia). location(dubai,uae). location(bangkok,thailand). location(beijing,china). location(dryden,canada).
+location(toronto,canada). location(montreal,canada). location(ottawa,canada). location(vancouver,canada). location(sarnia,canada). location(newyork,usa). location(chicago,usa). location(losAngeles,usa). location(london,england). location(dubai,uae). location(bangkok,thailand). location(beijing,china). location(dryden,canada).
 
-population(toronto,2809000). population(ottawa,947031). population(montreal,1741000). population(sarnia,71594). population(vancouver,647540). population(newyork,8538000). population(chicago,2705000). population(losangeles,3976000). population(sydney,4029000). population(dubai,2866000). population(bangkok,8281000). population(beijing,21500000). population(dryden,7617).
+population(toronto,2809000). population(ottawa,947031). population(montreal,1741000). population(sarnia,71594). population(vancouver,647540). population(newyork,8538000). population(chicago,2705000). population(losAngeles,3976000). population(london,4029000). population(dubai,2866000). population(bangkok,8281000). population(beijing,21500000). population(dryden,7617).
 
 married(alan,anna). married(bob,betty). married(chris,cathy). married(dwight,debora). married(ethan,elle). married(fred,fay). married(george,georgina). married(howard,hallie). married(ian,isabel). married(john,julie).
 
@@ -116,7 +116,7 @@ adjective(married,X) :- not (not married(X,_), not married(_,X)).
 adjective(parent,X) :- parent(X,_).
 adjective(american,X) :- home(X,City), location(City,usa).
 adjective(canadian,X) :- home(X,City), location(City,canada).
-adjective(australian,X) :- home(X,City), location(City,australia).
+adjective(english,X) :- home(X,City), location(City,england).
 adjective(thai,X) :- home(X,City), location(City,thailand).
 adjective(chinese,X) :- home(X,City), location(City,china).
 adjective(torontonian,X) :- home(X,toronto).
