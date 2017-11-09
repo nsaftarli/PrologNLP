@@ -58,6 +58,9 @@ wife(X,Y) :- female(X), married(Y,X).
 article(a). article(an). article(any). article(that). article(this).
 
 article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(of,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(from,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(in,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(with,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
 
 common_noun(man,X) :- male(X). 
 common_noun(woman,X) :- female(X). 
@@ -123,7 +126,7 @@ preposition(with,X,Y) :- husband(X,Y).
 preposition(with,X,Y) :- wife(X,Y).
 
 
-proper_noun(X) :- not article(X), not article2(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
+proper_noun(X) :- not article(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
 
 adjective(big,X) :- population(X,Y), Y>=50000.
 adjective(small,X) :- population(X,Y), Y<50000.
