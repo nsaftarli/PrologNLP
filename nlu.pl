@@ -102,8 +102,8 @@ preposition(in,X,Y,_) :- home(X,Y).
 preposition(with,X,Y,_) :- relative(X,Y).  
 preposition(with,X,Y,_) :- married(X,Y).
 preposition(with,X,Y,_) :- married(Y,X).
-preposition(with,X,Y) :- friend(X,Y).
-preposition(with,X,Y) :- friend(Y,X).
+preposition(with,X,Y,_) :- friend(X,Y).
+preposition(with,X,Y,_) :- friend(Y,X).
 
 
 proper_noun(X) :- not article(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
