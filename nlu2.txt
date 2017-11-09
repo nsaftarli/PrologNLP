@@ -7,3 +7,20 @@ Q2:
 ?- who([the, male, child, of, a, torontonian, man], X).
 X = bob
 Yes (0.00s cpu, solution 1, maybe more)
+
+Q3:
+?- who([the, sister, of, a, male, canadian, child, of, a, torontonian, man], X).
+X = cathy
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q4:
+?- what([a, largest, city, in, usa], X).
+X = newyork
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q5:
+?- what([a, parent, with, a, child, in, dryden], X).
+X = dwight
+Yes (0.00s cpu, solution 1, maybe more)
+
+Q6:
