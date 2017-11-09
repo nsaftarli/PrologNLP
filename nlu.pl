@@ -47,11 +47,26 @@ relative(X,Y) :- ancestor(Z,X), ancestor(Z,Y).
 
 child(X,Y) :- parent(Y,X).
 
+husband(X,Y) :- male(X), married(X,Y).
+husband(X,Y) :- male(X), married(Y,X).
+
+wife(X,Y) :- female(X), married(X,Y).
+wife(X,Y) :- female(X), married(Y,X).
+
 /* Part 2: Lexicon */
 
+<<<<<<< HEAD
 article(a). article(an). article(any).  article(that). article(this).
 
 article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(of,Noun,Noun2), not( preposition(of,Noun3,Noun2), not Noun = Noun3).
+=======
+article(a). article(an). article(any). article(that). article(this).
+
+article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(of,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(from,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(in,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+article2(the,[Noun|Rest],Who) :- common_noun(Noun,Who), preposition(with,Who,Ref), not (preposition(of,Who2,Ref), not Who = Who2).
+>>>>>>> 7de8592297607b66d5ed19577931fce835329756
 
 common_noun(man,X) :- male(X). 
 common_noun(woman,X) :- female(X). 
@@ -69,15 +84,34 @@ common_noun(country,X) :- country(X).
 common_noun(friend,X) :- friend(X,Y).
 common_noun(friend,X) :- friend(Y,X).
 common_noun(person,X) :- person(X).
-common_noun(husband,X) :- male(X), married(X,Y).
-common_noun(husband,X) :- male(X), married(Y,X).
-common_noun(wife,X) :- female(X), married(X,Y).
-common_noun(wife,X) :- female(X), married(Y,X).
+common_noun(husband,X) :- husband(X,Y).
+common_noun(wife,X) :- wife(X,Y).
 common_noun(child,X) :- child(X,_).
 
 
- 
-preposition(of,X,Y) :- friend(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), common_noun(Noun,Y), not X = Y, friend(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), common_noun(Noun,Y), not X = Y, friend(Y,X).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, father(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, mother(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, parent(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, child(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, relative(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, husband(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, wife(X,Y).
+
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, brother(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, sister(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, relative(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, grandmother(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, grandfather(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, uncle(X,Y).
+preposition(of,X,Y) :- common_noun(Noun,X), proper_noun(Y), not X = Y, auntie(X,Y).
+
+
+
+
+
+/*preposition(of,X,Y) :- friend(X,Y).
 preposition(of,X,Y) :- friend(Y,X).
 preposition(of,X,Y) :- father(X,Y).
 preposition(of,X,Y) :- mother(X,Y).
@@ -91,17 +125,32 @@ preposition(of,X,Y) :- grandmother(X,Y).
 preposition(of,X,Y) :- grandfather(X,Y).
 preposition(of,X,Y) :- uncle(X,Y).
 preposition(of,X,Y) :- auntie(X,Y).
+preposition(of,X,Y) :- husband(X,Y).
+preposition(of,X,Y) :- wife(X,Y).*/
+
 preposition(from,X,Y) :- home(X,Y). 
 preposition(from,X,Y) :- home(X,Z), location(Z,Y).
 
 preposition(in,X,Y) :- location(Y,X). 
 preposition(in,X,Y) :- location(X,Y). 
 preposition(in,X,Y) :- home(X,Y). 
-preposition(with,X,Y) :- relative(X,Y).  
-preposition(with,X,Y) :- married(X,Y).
-preposition(with,X,Y) :- married(Y,X).
+
 preposition(with,X,Y) :- friend(X,Y).
 preposition(with,X,Y) :- friend(Y,X).
+preposition(with,X,Y) :- father(X,Y).
+preposition(with,X,Y) :- mother(X,Y).
+preposition(with,X,Y) :- parent(X,Y).
+preposition(with,X,Y) :- brother(X,Y).
+preposition(with,X,Y) :- sister(X,Y).
+preposition(with,X,Y) :- child(X,Y).
+preposition(with,X,Y) :- relative(X,Y).
+preposition(with,X,Y) :- relative(Y,X).
+preposition(with,X,Y) :- grandmother(X,Y).
+preposition(with,X,Y) :- grandfather(X,Y).
+preposition(with,X,Y) :- uncle(X,Y).
+preposition(with,X,Y) :- auntie(X,Y).
+preposition(with,X,Y) :- husband(X,Y).
+preposition(with,X,Y) :- wife(X,Y).
 
 
 proper_noun(X) :- not article(X), not common_noun(X,_), not adjective(X,_), not preposition(X,_,_).
@@ -133,7 +182,11 @@ who(Words, Ref) :- np(Words, Ref).
 
 np([Name],Name) :- proper_noun(Name).
 np([Art|Rest], Who) :- article(Art), np2(Rest, Who).
+<<<<<<< HEAD
 np([Art|Rest], Who) :- article2(the, Rest, Who), np2(Rest, Who).
+=======
+np([Art|Rest], Who) :- article2(Art,Rest,Who), np2(Rest, Who).
+>>>>>>> 7de8592297607b66d5ed19577931fce835329756
 
 
 np2([Adj|Rest],Who) :- adjective(Adj,Who), np2(Rest, Who).
