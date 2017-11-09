@@ -150,7 +150,9 @@ adjective(thai,X) :- home(X,City), location(City,thailand).
 adjective(chinese,X) :- home(X,City), location(City,china).
 adjective(torontonian,X) :- home(X,toronto).
 adjective(montrealer,X) :- home(X,montreal).
-adjective(tiny,X) :- adjective(small,X). 
+adjective(tiny,X) :- adjective(small,X).
+adjective(male,X) :- male(X).
+adjective(female,X) :- female(X).
 
 
 /* Part 3: Parser */
